@@ -6,15 +6,19 @@
         <title>Blackjack</title>
         <meta name="description" content="Blackjack">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="styles/bootstrap.min.css">
         <link rel="stylesheet" href="styles/styles.css">
     </head>
-    <body>
-        <h1>Welcome to Blackjack</h1>
-        <p id="text-area">To get started press "New Game" below.</p>
-        <button id="new-game-button">New Game</button>
-        <button id="hit-button">Hit!</button>
-        <button id="stay-button">Stay</button>
-        
+    <body class="bg-light">
+        <div class="container">
+            <h1>Welcome to Blackjack</h1>
+            <p id="text-area">To get started press "New Game" below.</p>
+            <button type="button" class="btn btn-primary" id="new-game-button">New Game</button>
+            <button type="button" class="btn btn-primary" id="hit-button">Hit!</button>
+            <button type="button" class="btn btn-primary" id="stay-button">Stay</button>
+        </div>
+
+        <script src="scripts/bootstrap.bundle.min.js"></script>
         <script src="scripts/blackjack.js" async defer></script>
     </body>
 </html>
