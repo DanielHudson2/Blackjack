@@ -9,13 +9,21 @@
         <link rel="stylesheet" href="styles/bootstrap.min.css">
         <link rel="stylesheet" href="styles/styles.css">
     </head>
-    <body class="bg-light">
-        <div class="container">
+    <body>
+        <div class="container p-5 text-center">
             <h1>Welcome to Blackjack</h1>
-            <p id="text-area">To get started press "New Game" below.</p>
-            <button type="button" class="btn btn-primary" id="new-game-button">New Game</button>
-            <button type="button" class="btn btn-primary" id="hit-button">Hit!</button>
-            <button type="button" class="btn btn-primary" id="stay-button">Stay</button>
+            <h3 class="mt-5" id="text-area">To get started press "New Game" below.</h3>
+            <div class="row align-items-top my-3" id="game-zones">
+                <div class="col border mx-2 bg-light">
+                    <p class="p-2" id="dealer-zone"></p>
+                </div>
+                <div class="col border mx-2 bg-light">
+                    <p class="p-2" id="player-zone"></p>
+                </div>
+            </div>
+            <button type="button" class="btn btn-primary btn-lg col-md-6 m-1" id="new-game-button">New Game</button>
+            <button type="button" class="btn btn-primary btn-lg col-md-6 m-1" id="hit-button">Hit!</button>
+            <button type="button" class="btn btn-secondary btn-lg col-md-6 m-1" id="stay-button">Stay</button>
         </div>
 
         <script src="scripts/bootstrap.bundle.min.js"></script>

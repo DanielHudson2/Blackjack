@@ -4,6 +4,9 @@ let values = ["Ace", "King", "Queen", "Jack", "Ten", "Nine", "Eight", "Seven", "
 
 // DOM Variables
 let textArea = document.getElementById("text-area");
+let gameZones = document.getElementById("game-zones");
+let dealerZone = document.getElementById("dealer-zone");
+let playerZone = document.getElementById("player-zone");
 let newGameButton = document.getElementById("new-game-button");
 let hitButton = document.getElementById("hit-button");
 let stayButton = document.getElementById("stay-button");
@@ -20,6 +23,8 @@ let gameStarted = false,
 
 hitButton.style.display="none";
 stayButton.style.display="none";
+gameZones.style.display="none";
+
 showStatus();
 
 newGameButton.addEventListener("click", function() {
@@ -35,6 +40,7 @@ newGameButton.addEventListener("click", function() {
     newGameButton.style.display="none";
     hitButton.style.display="inline";
     stayButton.style.display="inline";
+    gameZones.style.display="flex";
     showStatus();
 });
 
@@ -173,8 +179,11 @@ function checkForEndOfGame() {
 
 function showStatus() {
     if (!gameStarted) {
-        textArea.innerText = "Welcome to Blackjack!";
         return;
+    }
+
+    if (gameStarted) {
+        textArea.innerText = "Good Luck!";
     }
 
     let dealerCardString = '';
@@ -189,24 +198,26 @@ function showStatus() {
 
     updateScores();
 
-    textArea.innerText = 
-        'Dealer has \n' + 
+    dealerZone.innerText = 
+        'Dealer has: \n' + 
         dealerCardString +
-        '(score: '+ dealerScore + ')\n\n' +
-
-        'Player has:\n' +
+        '\n (score: '+ dealerScore + ')\n\n';
+    
+    playerZone.innerText = 
+        'Player has: \n' +
         playerCardString +
-        '(score: '+ playerScore + ')\n\n';
+        '\n (score: '+ playerScore + ')\n\n';
 
     if (gameOver) {
         if (playerWon) {
-            textArea.innerText += "You Win!";
+            playerZone.innerText += "You Win!";
         }
         else {
-            textArea.innerText += "Dealer Wins";
+            dealerZone.innerText += "Dealer Wins";
         }
         newGameButton.style.display = 'inline';
         hitButton.style.display = 'none';
         stayButton.style.display = 'none';
+        textArea.innerText = 'Game ended, to start a new game press "New Game" below.';
     }
 }
