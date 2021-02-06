@@ -5,8 +5,15 @@ let values = ["Ace", "King", "Queen", "Jack", "Ten", "Nine", "Eight", "Seven", "
 // DOM Variables
 let textArea = document.getElementById("text-area");
 let gameZones = document.getElementById("game-zones");
-let dealerZone = document.getElementById("dealer-zone");
-let playerZone = document.getElementById("player-zone");
+
+let dealerWinStatus = document.getElementById("dealer-win-status");
+let dealerCardsDisplay = document.getElementById("dealer-cards");
+let dealerScoreDisplay = document.getElementById("dealer-score");
+
+let playerWinStatus = document.getElementById("player-win-status");
+let playerCardsDisplay = document.getElementById("player-cards");
+let playerScoreDisplay = document.getElementById("player-score");
+
 let newGameButton = document.getElementById("new-game-button");
 let hitButton = document.getElementById("hit-button");
 let stayButton = document.getElementById("stay-button");
@@ -36,6 +43,9 @@ newGameButton.addEventListener("click", function() {
     shuffleDeck(deck);
     dealerCards = [ getNextCard(), getNextCard() ];
     playerCards = [ getNextCard(), getNextCard() ];
+
+    dealerWinStatus.innerText = "";
+    playerWinStatus.innerText = "";
 
     newGameButton.style.display="none";
     hitButton.style.display="inline";
@@ -198,22 +208,20 @@ function showStatus() {
 
     updateScores();
 
-    dealerZone.innerText = 
-        'Dealer has: \n' + 
-        dealerCardString +
-        '\n (score: '+ dealerScore + ')\n\n';
-    
-    playerZone.innerText = 
-        'Player has: \n' +
-        playerCardString +
-        '\n (score: '+ playerScore + ')\n\n';
+    dealerCardsDisplay.innerText = dealerCardString;
+    dealerScoreDisplay.innerText = dealerScore;
+
+    playerCardsDisplay.innerText = playerCardString;
+    playerScoreDisplay.innerText = playerScore;
 
     if (gameOver) {
         if (playerWon) {
-            playerZone.innerText += "You Win!";
+            playerWinStatus.innerText = "You Win!";
+            dealerWinStatus.innerText = "Dealer Loses!";
         }
         else {
-            dealerZone.innerText += "Dealer Wins";
+            dealerWinStatus.innerText = "Dealer Wins";
+            playerWinStatus.innerText = "You Lose!";
         }
         newGameButton.style.display = 'inline';
         hitButton.style.display = 'none';
