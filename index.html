@@ -1,42 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Blackjack</title>
-        <meta name="description" content="Blackjack">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="styles/bootstrap.min.css">
-        <link rel="stylesheet" href="styles/styles.css">
-    </head>
-    <body class="bg-dark">
-        <div class="container p-5 text-center">
-            <h1 class="text-white">Welcome to Blackjack</h1>
-            <h3 class="mt-5 text-white" id="text-area">To get started press "New Game" below.</h3>
-            <div class="row align-items-top justify-content-center my-3" id="game-zones">
-                <div class="col-12 col-sm-5 my-2 m-sm-2 border bg-light rounded">
-                    <div class="p-2">
-                        <h5>Dealer Has:</h5>
-                        <p id="dealer-cards"></p>
-                        <p>Score: <span id="dealer-score"></span></p>
-                        <p id="dealer-win-status"></p>
-                    </div>
-                </div>
-                <div class="col-12 col-sm-5 my-2 m-sm-2 border bg-light rounded">
-                    <div class="p-2">
-                        <h5>Player Has:</h5>
-                        <p id="player-cards"></p>
-                        <p>Score: <span id="player-score"></span></p>
-                        <p id="player-win-status"></p>
-                    </div>
-                </div>
-            </div>
-            <button type="button" class="btn btn-primary btn-lg col-12 col-sm-6 m-1" id="new-game-button">New Game</button>
-            <button type="button" class="btn btn-primary btn-lg col-12 col-sm-6 m-1" id="hit-button">Hit!</button>
-            <button type="button" class="btn btn-secondary btn-lg col-12 col-sm-6 m-1" id="stay-button">Stay</button>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Blackjack</title>
+    <meta name="description" content="Blackjack" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="styles/bootstrap.min.css" />
+    <link rel="stylesheet" href="styles/styles.css" />
+  </head>
+  <body class="bg-dark">
+    <div class="container p-5 text-center">
+      <h1 class="text-white">Welcome to Blackjack</h1>
+      <h2 class="text-white">Your Scores:</h2>
+      <p class="text-white">
+        Wins: <span id="player-wins">0</span> Losses:
+        <span id="player-losses">0</span>
+      </p>
+      <h3 class="mt-5 text-white" id="text-area">
+        To get started press "New Game" below.
+      </h3>
+      <div
+        class="row align-items-top justify-content-center my-3"
+        id="game-zones"
+      >
+        <div class="col-12 col-sm-5 my-2 m-sm-2 border bg-light rounded">
+          <div class="p-2">
+            <h5>Dealer Has:</h5>
+            <p id="dealer-cards"></p>
+            <p>Score: <span id="dealer-score"></span></p>
+            <p id="dealer-win-status"></p>
+          </div>
         </div>
+        <div class="col-12 col-sm-5 my-2 m-sm-2 border bg-light rounded">
+          <div class="p-2">
+            <h5>Player Has:</h5>
+            <p id="player-cards"></p>
+            <p>Score: <span id="player-score"></span></p>
+            <p id="player-win-status"></p>
+          </div>
+        </div>
+      </div>
+      <button
+        type="button"
+        class="btn btn-primary btn-lg col-12 col-sm-6 m-1"
+        id="new-game-button"
+      >
+        New Game
+      </button>
+      <button
+        type="button"
+        class="btn btn-primary btn-lg col-12 col-sm-6 m-1"
+        id="hit-button"
+      >
+        Hit!
+      </button>
+      <button
+        type="button"
+        class="btn btn-secondary btn-lg col-12 col-sm-6 m-1"
+        id="stay-button"
+      >
+        Stay
+      </button>
+    </div>
 
-        <script src="scripts/bootstrap.bundle.min.js"></script>
-        <script src="scripts/blackjack.js" async defer></script>
-    </body>
+    <script src="scripts/bootstrap.bundle.min.js"></script>
+    <script src="scripts/blackjack.js" async defer></script>
+  </body>
 </html>
